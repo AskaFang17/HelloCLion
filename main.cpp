@@ -18,7 +18,6 @@ int main() {
     }
 
     cout << "You entered " << a << " and " << b << endl;
-
     cout << "The greatest common denominator is " << gcd(a,b) << endl;
 
     return 0;
@@ -32,10 +31,10 @@ int main() {
 // a and b.
 int gcd(const int a, const int b) {
     if (a == 0 || b == 0)
-        return 0;
-    if (a == b)
-        return a;
+        return 0; // the greatest common denominator of zero is always zero
+    if (a == b) // recursion ends (base case achieved)
+        return a; // largest common denominator found
     if (a > b)
-        return gcd(a - b, b);
-    return gcd(a, b - a);
+        return gcd(a - b, b); // recursion; move to the next possible common denominator
+    return gcd(a, b - a); // recursion; move to the next possible common denominator (other way around)
 }
