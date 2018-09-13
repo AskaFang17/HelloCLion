@@ -3,4 +3,4 @@ project(lab01_A01031025)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(lab01_A01031025 main.cpp)
+add_executable(lab01_A01031025 main.cpp gcd.hpp)
