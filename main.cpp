@@ -2,29 +2,40 @@
 #include "gcd.hpp"
 using namespace std;
 
+int main() {
+    int a, b;
+    cout << "Enter the first positive integer: " << endl;
+    cin >> a;
+    while (a < 0) {
+        cout << "invalid input" << endl;
+        cin >> a;
+    }
+    cout << "Enter the second positive integer: " <<endl;
+    cin >> b;
+    while (b < 0) {
+        cout << "invalid input" << endl;
+        cin >> b;
+    }
+
+    cout << "You entered " << a << " and " << b << endl;
+
+    cout << "The greatest common denominator is " << gcd(a,b) << endl;
+
+    return 0;
+}
+
 // Greatest Common Denominator
 // PRE: a is a positive integer
 // PRE: b is a positive integer
 // POST: a and b are unchanged
 // RETURN: the greatest common denominator of
 // a and b.
-
-
-
-
-
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    cout << gcd(1,5);
-    return 0;
-}
-int gcd(const int a, const int b){
-//    int denom{1}; // starting with the lowest possible denominator
-//    int greatestDenom;
-//    while (a/denom == b/denom) {
-//        greatestDenom == denom;
-//        denom += 1;
-//    }
-    // second committ
-    return 1;
+int gcd(const int a, const int b) {
+    if (a == 0 || b == 0)
+        return 0;
+    if (a == b)
+        return a;
+    if (a > b)
+        return gcd(a - b, b);
+    return gcd(a, b - a);
 }
